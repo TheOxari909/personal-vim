@@ -22,6 +22,8 @@ Plug 'mbbill/undotree'
 
 call plug#end()
 
+let NERDTreeShowHidden=1
+
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd BufEnter * lcd %:p:h
