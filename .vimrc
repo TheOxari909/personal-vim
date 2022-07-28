@@ -10,7 +10,6 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'eslint/eslint'
 Plugin 'VundleVim/Vundle.vim'
 
 call vundle#end()
@@ -19,6 +18,7 @@ filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'dense-analysis/ale'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'altercation/vim-colors-solarized'
@@ -40,7 +40,7 @@ autocmd BufEnter * lcd %:p:h
 syntax on
 
 set noerrorbells
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=2 shiftwidth=4 expandtab
 set smartindent
 set number
 set nowrap
