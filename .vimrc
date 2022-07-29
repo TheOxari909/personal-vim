@@ -4,12 +4,17 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
 set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'VundleVim/Vundle.vim'
 
 call vundle#end()
@@ -33,6 +38,9 @@ call plug#end()
 
 let NERDTreeShowHidden=1
 
+" Open the existing NERDTree on each new tab
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd BufEnter * lcd %:p:h
@@ -40,7 +48,7 @@ autocmd BufEnter * lcd %:p:h
 syntax on
 
 set noerrorbells
-set tabstop=2 shiftwidth=4 expandtab
+set tabstop=2 shiftwidth=2 expandtab
 set smartindent
 set number
 set nowrap
